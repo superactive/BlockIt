@@ -22,7 +22,7 @@ DWORD FilterByApp(
          __in_opt const GUID* providerKey,
          __in const GUID* layerKey,
          __in_opt const GUID* subLayerKey,
-         __in_opt PCWSTR appPath,
+         __in PCWSTR appPath,
          __in FWP_ACTION_TYPE actionType,
          __out_opt UINT64* filterId
          )
@@ -50,6 +50,8 @@ DWORD FilterByApp(
       conds[numConds].conditionValue.byteBlob = appBlob;
       ++numConds;
    }
+   else
+      throw std::exception("appPath is a required parameter!");
 
    memset(&filter, 0, sizeof(filter));
    // For MUI compatibility, object names should be indirect strings. See
@@ -62,14 +64,13 @@ DWORD FilterByApp(
    // Generally, it's best to add filters to our own sublayer, so we don't have
    // to worry about being overridden by filters added by another provider.
    if (subLayerKey != NULL)
-   {
       filter.subLayerKey = *subLayerKey;
-   }
+
    filter.numFilterConditions = numConds;
+   
    if (numConds > 0)
-   {
       filter.filterCondition = conds;
-   }
+      
    filter.action.type = actionType;
 
    result = FwpmFilterAdd0(engine, &filter, NULL, filterId);
