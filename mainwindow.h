@@ -15,8 +15,11 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+public slots:
+    void fileDialog();
+
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *ui;    
 };
 
 #endif // MAINWINDOW_H
