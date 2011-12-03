@@ -8,13 +8,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    connect(&ui->btnBrowse, SIGNAL(clicked()), this, SLOT(fileDialog()));
+    connect(ui->btnBrowse, SIGNAL(clicked()), this, SLOT(fileDialog()));
 }
 
 void MainWindow::fileDialog()
 {
-    QString path = QFileDialog::getOpenFileName(this, "Select an executable", "", "Executables (*.exe)");
-    return;
+    QString path = QFileDialog::getOpenFileName(this, "Select an executable", "", "Executables (*.exe *.*)");
 }
 
 MainWindow::~MainWindow()
