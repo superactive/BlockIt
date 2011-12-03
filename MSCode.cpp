@@ -2,7 +2,8 @@
 #include <fwpmu.h>
 #include <accctrl.h>
 #include <aclapi.h>
-#include <stdio.h>
+#include <exception>
+#include <cstdio>
 
 #pragma comment (lib, "fwpuclnt.lib")
 #pragma comment (lib, "advapi32.lib")
