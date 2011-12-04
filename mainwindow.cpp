@@ -39,13 +39,13 @@ void MainWindow::fillAppsRunningList()
 
 void MainWindow::block()
 {
-    BIItem item = BIItem();
+    BIItem item;
     QString path = "";
 
     if (ui->tabAppList->currentIndex() == 0)
-        item = ui->listAppsInstalled->selectedItems()[0]->data(0).value<BIItem>();
+        item = items[ui->listAppsInstalled->selectedIndexes()[0]];
     else if (ui->tabAppList->currentIndex() == 1)
-        item = ui->listAppsRunning->selectedItems()[0]->data(0).value<BIItem>();
+        item = items[ui->listAppsRunning->selectedIndexes()[0]];
 
     // Call blocking library here
     // maybe item->block();

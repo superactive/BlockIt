@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tabAppsInstalled">
      <attribute name="title">
@@ -33,7 +33,7 @@
      <widget class="QListWidget" name="listAppsInstalled">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>2</x>
         <y>0</y>
         <width>311</width>
         <height>341</height>
@@ -48,7 +48,7 @@
      <widget class="QListWidget" name="listAppsRunning">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>2</x>
         <y>0</y>
         <width>311</width>
         <height>341</height>
