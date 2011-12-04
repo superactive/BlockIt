@@ -11,8 +11,12 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    BIItem.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    BIItem.h
 
 FORMS    += mainwindow.ui
+
+
