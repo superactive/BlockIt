@@ -43,9 +43,9 @@ void MainWindow::block()
     QString path = "";
 
     if (ui->tabAppList->currentIndex() == 0)
-        item = items[ui->listAppsInstalled->selectedIndexes()[0]];
+        item = items[ui->listAppsInstalled->currentRow()];
     else if (ui->tabAppList->currentIndex() == 1)
-        item = items[ui->listAppsRunning->selectedIndexes()[0]];
+        item = items[ui->listAppsRunning->currentRow()];
 
     // Call blocking library here
     // maybe item->block();
