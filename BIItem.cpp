@@ -1,10 +1,10 @@
 #include "BIItem.h"
 
-BIItem()
+BIItem::BIItem()
     :exePath(""), iconPath(""), name("") {}
 
-BIItem(std::string exe, std::string icon, std::string name)
-    :exePath(exe), icon(iconPath), name(name) {}
+BIItem::BIItem(std::string exe, std::string icon, std::string name)
+    :exePath(exe), iconPath(icon), name(name) {}
 
 std::string BIItem::getExePath()
 {
@@ -14,4 +14,9 @@ std::string BIItem::getExePath()
 std::string BIItem::getIconPath()
 {
     return iconPath;
+}
+
+std::string BIItem::getName()
+{
+    return name;
 }
