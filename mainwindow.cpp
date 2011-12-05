@@ -33,7 +33,7 @@ void MainWindow::fillAppsRunningList()
 
 void MainWindow::fillList(QListWidget list, std::vector<BIItem> items)
 {
-    if (list && items.size() > 0)
+    if (items.size() > 0)
     {
         list.clear();
 
