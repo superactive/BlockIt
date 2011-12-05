@@ -3,6 +3,7 @@
 
 #include "BIItem.h"
 #include <QMainWindow>
+#include<QListWidget>
 #include <vector>
 
 namespace Ui {
@@ -25,7 +26,9 @@ private:
     Ui::MainWindow *ui;
     void fillAppsInstalledList();
     void fillAppsRunningList();
-    std::vector<BIItem> items;
+    void fillList(QListWidget list, std::vector<BIItem> items);
+    std::vector<BIItem> installedItems;
+    std::vector<BIItem> runningItems;
 };
 
 #endif // MAINWINDOW_H
