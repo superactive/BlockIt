@@ -26,7 +26,7 @@ private:
     Ui::MainWindow *ui;
     void fillAppsInstalledList();
     void fillAppsRunningList();
-    void fillList(QListWidget list, std::vector<BIItem> items);
+    void fillList(QListWidget* list, std::vector<BIItem> items);
     std::vector<BIItem> installedItems;
     std::vector<BIItem> runningItems;
 };

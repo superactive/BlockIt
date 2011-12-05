@@ -31,17 +31,17 @@ void MainWindow::fillAppsRunningList()
     fillList(ui->listAppsRunning, runningItems);
 }
 
-void MainWindow::fillList(QListWidget list, std::vector<BIItem> items)
+void MainWindow::fillList(QListWidget* list, std::vector<BIItem> items)
 {
     if (items.size() > 0)
     {
-        list.clear();
+        list->clear();
 
-        for (int i = 0; i < installedItems.size(); i++)
+        for (uint i = 0; i < installedItems.size(); i++)
         {
             QIcon icon(QString(items[i].getIconPath().c_str()));
             QListWidgetItem item(icon, QString(items[i].getName().c_str()));
-            list.addItem(&item);
+            list->addItem(&item);
         }
     }
 }
