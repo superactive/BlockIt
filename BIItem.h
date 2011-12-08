@@ -16,6 +16,7 @@ public:
     std::string getExePath();
     std::string getIconPath();
     std::string getName();
+    std::string toString();
 };
 
 #endif // BIITEM_H

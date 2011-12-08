@@ -20,3 +20,8 @@ std::string BIItem::getName()
 {
     return name;
 }
+
+std::string BIItem::toString()
+{
+    return "Name: " + name + " Path: " + exePath + " Icon: " + iconPath;
+}
