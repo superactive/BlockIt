@@ -15,30 +15,38 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->btnBrowse, SIGNAL(clicked()), this, SLOT(fileDialog()));
     connect(ui->btnBlock, SIGNAL(clicked()), this, SLOT(block()));
 
-    installedItems = std::vector<BIItem>();
-//    BIItem item("/Users/Eric/Desktop/test.exe", "/Users/Eric/Pictures/Deadmau5.png", "Testing");
-//    BIItem item2("/Users/Eric/Desktop/test.exe", "/Users/eric/Documents/School/UTC [Past]/CPSC 261 (C++)/Game.ico", "Testing Again");
-//    BIItem item3("/Users/Eric/Desktop/test.exe", "/Users/Eric/Pictures/appletimeline.tiff", "Testing Some More");
-
-//    installedItems.push_back(item);
-//    installedItems.push_back(item2);
-//    installedItems.push_back(item3);
+    fillBIItemsList(installedItems);
+    fillBIItemsList(runningItems);
 
     fillAppsInstalledList();
+    fillAppsRunningList();
+}
+
+void MainWindow::fillBIItemsList(std::vector<BIItem> &list)
+{
+    // fill list with call to library or interface
+    // maybe do this in the constructor instead
+    //    BIItem item("/Users/Eric/Desktop/test.exe", "/Users/Eric/Pictures/Deadmau5.png", "Testing");
+    //    BIItem item2("/Users/Eric/Desktop/test.exe", "/Users/eric/Documents/School/UTC [Past]/CPSC 261 (C++)/Game.ico", "Testing Again");
+    //    BIItem item3("/Users/Eric/Desktop/test.exe", "/Users/Eric/Pictures/appletimeline.tiff", "Testing Some More");
+
+    //    list.push_back(item);
+    //    list.push_back(item2);
+    //    list.push_back(item3);
 }
 
 void MainWindow::fillAppsInstalledList()
 {
-    fillList(ui->listAppsInstalled, installedItems);
+    fillListWidget(ui->listAppsInstalled, installedItems);
 }
 
 void MainWindow::fillAppsRunningList()
 {
     // Query library for running executables and store in runningItems
-    fillList(ui->listAppsRunning, runningItems);
+    fillListWidget(ui->listAppsRunning, runningItems);
 }
 
-void MainWindow::fillList(QListWidget* list, std::vector<BIItem> items)
+void MainWindow::fillListWidget(QListWidget* list, std::vector<BIItem> items)
 {
     if (list != NULL && items.size() > 0)
     {
@@ -62,6 +70,14 @@ void MainWindow::fillList(QListWidget* list, std::vector<BIItem> items)
 void MainWindow::fileDialog()
 {
     QString path = QFileDialog::getOpenFileName(this, "Select an executable to block", "", "Executables (*.exe)");
+    // need to get the icon for the executable, and ideally a name
+    QString iconPath = "";
+
+    QString name = "";
+    BIItem biitem(path.toStdString(), iconPath.toStdString(), name.toStdString());
+    installedItems.push_back(biitem);
+    QIcon icon(QString(biitem.getIconPath().c_str()));
+    QListWidgetItem *item = new QListWidgetItem(icon, QString(biitem.getName().c_str()), installedItems);
 }
 
 void MainWindow::block()
