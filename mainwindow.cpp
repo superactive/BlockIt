@@ -12,18 +12,17 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // Connections
     connect(ui->btnBrowse, SIGNAL(clicked()), this, SLOT(fileDialog()));
     connect(ui->btnBlock, SIGNAL(clicked()), this, SLOT(block()));
 
-    fillBIItemsList(installedItems);
-    fillBIItemsList(runningItems);
-
+    // Fill lists...maybe this ought to be done in the two below functions as well...probably should...
     fillAppsInstalledList();
     fillAppsRunningList();
 }
 
-void MainWindow::fillBIItemsList(std::vector<BIItem> &list)
-{
+void MainWindow::fillBIItemsList()
+{    
     // fill list with call to library or interface
     // maybe do this in the constructor instead
     //    BIItem item("/Users/Eric/Desktop/test.exe", "/Users/Eric/Pictures/Deadmau5.png", "Testing");
@@ -37,12 +36,15 @@ void MainWindow::fillBIItemsList(std::vector<BIItem> &list)
 
 void MainWindow::fillAppsInstalledList()
 {
+    // Query library for running executables and store in runningItems
+    fillBIItemsList(installedItems);
     fillListWidget(ui->listAppsInstalled, installedItems);
 }
 
 void MainWindow::fillAppsRunningList()
 {
     // Query library for running executables and store in runningItems
+    fillBIItemsList(runningItems);
     fillListWidget(ui->listAppsRunning, runningItems);
 }
 
@@ -78,6 +80,7 @@ void MainWindow::fileDialog()
     installedItems.push_back(biitem);
     QIcon icon(QString(biitem.getIconPath().c_str()));
     QListWidgetItem *item = new QListWidgetItem(icon, QString(biitem.getName().c_str()), installedItems);
+    ui->listAppsInstalled->addItem(item);
 }
 
 void MainWindow::block()
