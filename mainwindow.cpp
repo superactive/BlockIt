@@ -25,13 +25,13 @@ void MainWindow::fillBIItemsList()
 {    
     // fill list with call to library or interface
     // maybe do this in the constructor instead
-    //    BIItem item("/Users/Eric/Desktop/test.exe", "/Users/Eric/Pictures/Deadmau5.png", "Testing");
-    //    BIItem item2("/Users/Eric/Desktop/test.exe", "/Users/eric/Documents/School/UTC [Past]/CPSC 261 (C++)/Game.ico", "Testing Again");
-    //    BIItem item3("/Users/Eric/Desktop/test.exe", "/Users/Eric/Pictures/appletimeline.tiff", "Testing Some More");
+    BIItem item("/Users/Eric/Desktop/test.exe", "/Users/Eric/Pictures/Deadmau5.png", "Testing");
+    BIItem item2("/Users/Eric/Desktop/test.exe", "/Users/eric/Documents/School/UTC [Past]/CPSC 261 (C++)/Game.ico", "Testing Again");
+    BIItem item3("/Users/Eric/Desktop/test.exe", "/Users/Eric/Pictures/appletimeline.tiff", "Testing Some More");
 
-    //    list.push_back(item);
-    //    list.push_back(item2);
-    //    list.push_back(item3);
+    //list.push_back(item);
+    //list.push_back(item2);
+    //list.push_back(item3);
 }
 
 void MainWindow::fillAppsInstalledList()
@@ -75,12 +75,12 @@ void MainWindow::fileDialog()
     // need to get the icon for the executable, and ideally a name
     QString iconPath = "";
 
-    QString name = "";
-    BIItem biitem(path.toStdString(), iconPath.toStdString(), name.toStdString());
-    installedItems.push_back(biitem);
-    QIcon icon(QString(biitem.getIconPath().c_str()));
-    QListWidgetItem *item = new QListWidgetItem(icon, QString(biitem.getName().c_str()), installedItems);
-    ui->listAppsInstalled->addItem(item);
+//    QString name = "";
+//    BIItem biitem(path.toStdString(), iconPath.toStdString(), name.toStdString());
+//    installedItems.push_back(biitem);
+//    QIcon icon(QString(biitem.getIconPath().c_str()));
+//    QListWidgetItem *item = new QListWidgetItem(icon, QString(biitem.getName().c_str()), installedItems);
+//    ui->listAppsInstalled->addItem(item);
 }
 
 void MainWindow::block()

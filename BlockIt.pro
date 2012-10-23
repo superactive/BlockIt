@@ -15,10 +15,10 @@ SOURCES += main.cpp\
     BIItem.cpp
 
 HEADERS  += mainwindow.h \
-    BIItem.h \
-    IBlock.h
+    BIItem.h
 
 FORMS    += mainwindow.ui
+
 
 
 
